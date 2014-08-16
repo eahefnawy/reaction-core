@@ -92,6 +92,12 @@ Router.map ->
     data: ->
       Orders.find(@params._id)
 
+  # list page of revisions
+  @route 'dashboard/revisions',
+    controller: ShopAdminController
+    path: 'dashboard/revisions/'
+    template: 'revisions'
+
   # display products by tag
   @route 'product/tag',
     controller: ShopController

@@ -183,6 +183,7 @@ Meteor.methods
     unless Roles.userIsInRole(Meteor.userId(), ['admin'])
       return false
     # value = Spacebars.SafeString(value)
+    Revisions.insert {productId: productId, field: field, value: value}
     value  = EJSON.stringify value
     update = EJSON.parse "{\"" + field + "\":" + value + "}"
     return Products.update productId, $set: update

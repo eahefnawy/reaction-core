@@ -668,3 +668,22 @@ ReactionCore.Schemas.Tag = new SimpleSchema
 
 ReactionCore.Collections.Tags = Tags = @Tags = new Meteor.Collection "Tags"
 ReactionCore.Collections.Tags.attachSchema ReactionCore.Schemas.Tag
+
+###
+# Revisions
+###
+ReactionCore.Schemas.Revision = new SimpleSchema
+  productId:
+    type: String
+    optional: false
+  field:
+    type: String
+    optional: false
+  value:
+    type: String
+    optional: false
+  createdAt:
+    type: Date
+
+ReactionCore.Collections.Revisions = Revisions = @Revisions = new Meteor.Collection "Revisions"
+ReactionCore.Collections.Revisions.attachSchema ReactionCore.Schemas.Revision
