@@ -1,0 +1,12 @@
+<template name="revision">
+<tr>
+    <td><a href="{{pathForSEO 'product' 'handle'}}">Product Link</a></td>
+    <td>{{field}}</td>
+    <td>{{value}}</td>
+    <td>{{username}}</td>
+    <td>{{dateFormat createdAt format="MMM D"}}</td>
+    <td>
+        <button type="button" class="btn btn-success restore-btn">Restore</button>
+    </td>
+</tr>
+</template>

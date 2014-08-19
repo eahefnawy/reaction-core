@@ -173,6 +173,14 @@ Package.on_use(function (api, where) {
     "client/templates/dashboard/customers/customers.html",
     "client/templates/dashboard/customers/customers.coffee",
 
+    "client/templates/dashboard/revisions/revisions.html",
+    "client/templates/dashboard/revisions/revisions.coffee",
+    "client/templates/dashboard/revisions/revisions.import.less",
+
+    "client/templates/dashboard/revisions/revision/revision.html",
+    "client/templates/dashboard/revisions/revision/revision.coffee",
+
+
     "client/templates/dashboard/orders/orders.html",
     "client/templates/dashboard/orders/orders.coffee",
 

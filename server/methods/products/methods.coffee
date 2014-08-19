@@ -179,11 +179,20 @@ Meteor.methods
   ###
   # update single product field
   ###
-  updateProductField: (productId, field,value) ->
+  updateProductField: (productId, field, value, isRestoring) ->
     unless Roles.userIsInRole(Meteor.userId(), ['admin'])
       return false
     # value = Spacebars.SafeString(value)
-    Revisions.insert {productId: productId, field: field, value: value}
+    unless isRestoring is true
+      Revisions.insert 
+        productId: productId,
+        handle: Products.findOne({_id: productId}).handle,
+        field: field, 
+        value: value, 
+        userId: Meteor.userId(),
+        username: Meteor.user().username, 
+        createdAt: new Date()
+
     value  = EJSON.stringify value
     update = EJSON.parse "{\"" + field + "\":" + value + "}"
     return Products.update productId, $set: update

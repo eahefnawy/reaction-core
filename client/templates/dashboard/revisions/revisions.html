@@ -1,3 +1,37 @@
 <template name="revisions">
-<h1>HI</h1>
+    <div class="container">
+        <h1 id="revision-control-header">Revision Control</h1>
+        <div class="btn-group btn-group-justified revision-control-table">
+            <div class="btn-group btn-group-lg">
+                <button type="button" class="btn btn-default">Products</button>
+            </div>
+            <div class="btn-group btn-group-lg">
+                <button type="button" class="btn btn-default">Variants</button>
+            </div>
+            <div class="btn-group btn-group-lg">
+                <button type="button" class="btn btn-default">Tags</button>
+            </div>
+        </div>
+
+
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Field</th>
+                    <th class="col-md-6">Value</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Restore</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#each revisions}} 
+                	{{> revision}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </template>

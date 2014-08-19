@@ -5,6 +5,36 @@ share.Variant = @Variant = new Meteor.Collection("Variant")
 
 ReactionCore.Collections.ConfigData = new Meteor.Collection "ConfigData"
 
+
+###
+# Revisions
+###
+ReactionCore.Schemas.Revision = new SimpleSchema
+  productId:
+    type: String
+    optional: true
+  handle:
+    type: String
+    optional: true
+  field:
+    type: String
+    optional: true
+  value:
+    type: String
+    optional: true
+  userId:
+    type: String
+    optional: true
+  username:
+    type: String
+    optional: true
+  createdAt:
+    type: Date
+    optional: true
+
+ReactionCore.Collections.Revisions = Revisions = @Revisions = new Meteor.Collection "Revisions"
+ReactionCore.Collections.Revisions.attachSchema ReactionCore.Schemas.Revision
+
 ###
 # Packages
 ###
@@ -668,22 +698,3 @@ ReactionCore.Schemas.Tag = new SimpleSchema
 
 ReactionCore.Collections.Tags = Tags = @Tags = new Meteor.Collection "Tags"
 ReactionCore.Collections.Tags.attachSchema ReactionCore.Schemas.Tag
-
-###
-# Revisions
-###
-ReactionCore.Schemas.Revision = new SimpleSchema
-  productId:
-    type: String
-    optional: false
-  field:
-    type: String
-    optional: false
-  value:
-    type: String
-    optional: false
-  createdAt:
-    type: Date
-
-ReactionCore.Collections.Revisions = Revisions = @Revisions = new Meteor.Collection "Revisions"
-ReactionCore.Collections.Revisions.attachSchema ReactionCore.Schemas.Revision

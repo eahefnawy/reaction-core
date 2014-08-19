@@ -8,6 +8,7 @@ Packages = ReactionCore.Collections.Packages
 ConfigData = ReactionCore.Collections.ConfigData
 FileStorage = ReactionCore.Collections.FileStorage
 Media = ReactionCore.Collections.Media
+Revisions = ReactionCore.Collections.Revisions
 
 ###
 # Generic Security Rule Manager
@@ -82,7 +83,7 @@ AutoSet "shopId", [ Packages, Orders, Cart, Tags ], ->
 # We add some common security rules through simple Security methods
 ###
 
-Security.defaultAllow [ Media, FileStorage, ConfigData, Packages, Products, Orders, Cart, Tags ]
+Security.defaultAllow [ Media, FileStorage, ConfigData, Packages, Products, Orders, Cart, Tags, Revisions]
 
 Security.allowOnlyRoles ['admin'], ["insert", "update", "remove"], [ Media, FileStorage, ConfigData, Products, Tags ]
 
@@ -214,6 +215,14 @@ Meteor.publish 'shopMembers', ->
   self.onStop ->
     handle.stop()
   return
+
+#Revisions.allow {}
+###
+# revisions collection
+###
+Meteor.publish 'Revisions', ->
+  return Revisions.find()
+
 
 ###
 # product collection

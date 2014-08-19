@@ -1,6 +1,7 @@
 Template.productDetailEdit.events
   "change input,textarea": (event,template) ->
-    Meteor.call "updateProductField", selectedProductId(), this.field, $(event.currentTarget).val(), (error,results) ->
+    isRestoring = false
+    Meteor.call "updateProductField", selectedProductId(), this.field, $(event.currentTarget).val(), isRestoring, (error,results) ->
       if results
         $(event.currentTarget).animate({backgroundColor: "#e2f2e2" }).animate({backgroundColor: "#fff"})
     if this.type is "textarea" then $(event.currentTarget).trigger('autosize.resize')
